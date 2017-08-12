@@ -1,11 +1,12 @@
-  Rails.application.routes.draw do
+Rails.application.routes.draw do
   devise_for :users
-    root  'tweets#index'                       #ルートパスの指定
-    get   'tweets'      =>  'tweets#index'     #ツイート一覧画面
-    get   'tweets/new'  =>  'tweets#new'       #ツイート投稿画面
-    post  'tweets'      =>  'tweets#create'    #ツイート投稿機能
-    delete  'tweets/:id'  => 'tweets#destroy'
-    patch   'tweets/:id'  => 'tweets#update'
-    get   'tweets/:id/edit'  => 'tweets#edit'
-    get   'users/:id'   =>  'users#show'    #Mypageへのルーティング
-  end
+  root 'tweets#index'
+  get   'tweets'      =>  'tweets#index'
+  get 'tweets/new' => 'tweets#new'
+  post 'tweets' => 'tweets#create'
+  get 'users/:id' => 'users#show'
+  delete 'tweets/:id' => 'tweets#destroy'
+  get 'tweets/:id/edit' => 'tweets#edit'
+  patch 'tweets/:id'  => 'tweets#update'
+  get 'tweets/:id' => 'tweets#show'       #ツイート詳細画面
+end
